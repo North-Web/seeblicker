@@ -1,0 +1,8 @@
+'NorthWeb.Site:Content.Image':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.Image': true
+  ui:
+    label: Image
+    icon: icon-picture
+    position: 300
