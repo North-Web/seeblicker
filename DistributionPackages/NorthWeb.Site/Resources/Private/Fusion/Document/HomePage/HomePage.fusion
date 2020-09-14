@@ -1,7 +1,11 @@
 prototype(NorthWeb.Site:Document.HomePage) < prototype(NorthWeb.Site:Document.AbstractPage) {
     # On the Homepage you typically want to use the brand name as the start,
     # so don't append it again
-    head.titleTag.outputSuffixOnTitleOverride = false
+    head.titleTag >
+    head.titleTag  = Neos.Fusion:Tag {
+        tagName = 'title'
+        content = ${'Seeblick'}
+    }
 
     body.content = Neos.Fusion:Component {
         main = Neos.Neos:ContentCollection {
@@ -9,7 +13,7 @@ prototype(NorthWeb.Site:Document.HomePage) < prototype(NorthWeb.Site:Document.Ab
         }
 
         renderer = afx`
-            <main class="main">
+            <main role="main" class="flex-shrink-0">
                 {props.main}
             </main>
         `

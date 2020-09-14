@@ -4,6 +4,8 @@
     'NorthWeb.Site:Document.AbstractPage': true
     'NorthWeb.Site:Constraint.Document.Restricted': true
     'NorthWeb.Site:Mixin.InspectorGeneral': true
+    'NorthWeb.Site:Mixin.Image': true
+    'NorthWeb.Site:Mixin.ActionButton': true
   ui:
     label: i18n
     icon: icon-globe
@@ -24,9 +26,40 @@
         reloadIfChanged: true
         inspector:
           group: general
+          position: 300
           editorOptions:
             nodeTypes:
               - 'Neos.Neos:Document'
+    image:
+      ui:
+        inspector:
+          group: general
+          position: 100
+          editorOptions:
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 1200
+                  height: 420
+    alternativeText: []
+    headline:
+      type: 'string'
+      ui:
+        label: 'Headline'
+        reloadIfChanged: true
+        inspector:
+          group: general
+          position: 200
+          editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
+          editorOptions:
+            rows: 3
   childNodes:
     notfound:
       type: 'NorthWeb.Site:Document.Page'
+    footerPartner:
+      type: Neos.Neos:ContentCollection
+      constraints:
+        nodeTypes:
+          '*': false
+          'NorthWeb.Site:Content.PartnerItem': true

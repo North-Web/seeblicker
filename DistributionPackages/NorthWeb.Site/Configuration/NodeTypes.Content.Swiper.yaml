@@ -1,0 +1,51 @@
+'NorthWeb.Site:Content.Swiper':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackgroundContainer': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+    'NorthWeb.Site:Mixin.ActionButton': true
+  ui:
+    label: Swiper
+    icon: icon-images
+    position: 70
+    inlineEditable: true
+    inspector:
+      groups:
+        style:
+          position: 10
+        actionButton:
+          label: Kreis-Button
+          position: 20
+  properties:
+    title:
+      options:
+        silhouette: 'codeq.text.title'
+    text:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: '<p>Text eingeben...</p>'
+            hyphens: true
+      options:
+        silhouette: codeq.text.free
+    styleBackgroundContainer:
+      ui:
+        label: 'Hintergrund gesamt'
+        position: 100
+      paddingTop:
+        ui:
+          position: 200
+      paddingBottom:
+        ui:
+          position: 300
+    actionButtonHeadline: []
+    actionButtonIcon: []
+    actionButtonLink: []
+  childNodes:
+    items:
+      type: Neos.Neos:ContentCollection
+      constraints:
+        nodeTypes:
+          '*': false
+          'NorthWeb.Site:Content.Swiper.Item': true

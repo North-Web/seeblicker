@@ -6,33 +6,120 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
         startingPoint = ${site}
         maximumLevels = 2
     }
+    logo = Neos.Fusion:ResourceUri {
+        path = 'resource://NorthWeb.Site/Public/Frontend/img/logo_white.svg'
+    }
 
-    ##
-    # If you want to use a default rendering for a menu, you can just use:
-    ##
-    # <Neos.Neos:Menu
-    #     startingPoint={site}
-    #     attributes.class="navigation"
-    #     normal.attributes.class="navigation-item"
-    #     active.attributes.class="navigation-item navigation-item--state-active"
-    #     current.attributes.class="navigation-item navigation-item--state-current"
-    #     />
-    ##
+    headline = ${String.nl2br(q(node).property('headline'))}
+
+    background = Neos.Neos:ImageUri {
+        asset = ${documentNode.context.inBackend ? q(node).property('image') : q(node).add(q(node).parents('[image]')).filter('[image][image != ""]').first().property('image')}
+        maximumWidth = 1200
+        allowCropping = TRUE
+        allowUpScaling = TRUE
+    }
+
+    buttonLink = ${q(node).property('actionButtonLink')}
+
+    styleClassTextButton = Neos.Fusion:Join {
+        1 = ${'ml-auto d-flex align-content-end align-items-center flex-column p-4 mr-5 mb-5 actionButton'}
+        2 = ${q(node).property('actionButtonStyle')}
+        @glue = ' '
+    }
+
+    button = Carbon.Link:Link {
+        link = ${q(node).property('actionButtonLink')}
+        additionalClass = Neos.Fusion:Join {
+            1 = ${'ml-auto align-content-end align-items-center flex-column p-4 mr-5 mb-5 actionButton d-none d-xl-flex'}
+            2 = ${q(node).property('actionButtonStyle')}
+            @glue = ' '
+        }
+        title = ${q(node).property('actionButtonHeadline')}
+        defaultTagName = 'div'
+        renderDefaultTagIfNoLink = true
+        content = Neos.Fusion:Component {
+            title = ${q(node).property('actionButtonHeadline')}
+            text = ${q(node).property('actionButtonText')}
+            icon = ${q(node).property('actionButtonIcon')}
+            renderer = afx`
+                <h3>{props.title}</h3>
+                <p>
+                    {props.text}
+                </p>
+                <div class={'mt-auto align-self-center icon ' + props.icon}>
+                </div>
+            `
+        }
+        @if.hasContent = ${q(node).property('actionButtonHeadline') || q(node).property('actionButtonText') ? true : false}
+    }
+
+    buttonMobile = Carbon.Link:Link {
+        link = ${q(node).property('actionButtonLink')}
+        additionalClass = Neos.Fusion:Join {
+            1 = ${'d-flex flex-column justify-content-center text-center w-100 d-xl-none actionButtonMobil p-2 pb-3'}
+            2 = ${q(node).property('actionButtonStyle')}
+            @glue = ' '
+        }
+        title = ${q(node).property('actionButtonHeadline')}
+        defaultTagName = 'div'
+        renderDefaultTagIfNoLink = true
+        content = Neos.Fusion:Component {
+            title = ${q(node).property('actionButtonHeadline')}
+            text = ${q(node).property('actionButtonText')}
+            icon = ${q(node).property('actionButtonIcon')}
+            renderer = afx`
+                <h3>{props.title}</h3>
+                <p>
+                    {props.text}
+                </p>
+                <div class={'align-self-center icon ' + props.icon}>
+                </div>
+            `
+        }
+        @if.hasContent = ${q(node).property('actionButtonHeadline') || q(node).property('actionButtonText') ? true : false}
+    }
 
     renderer = afx`
-        <header class="main-header">
-            <a class="logo" href={props.homeLink}>BRAND NAME</a>
-            <NorthWeb.Site:Component.Header.MenuItemsRenderer items={props.menuItems} />
+        <header class="w-100">
+            <div class="mainNav">
+                <div class="container h-100">
+                    <nav class="navbar navbar-expand-lg navbar-custom ">
+                        <a class="navbar-brand" href={props.homeLink}>
+                            <img class="align-self-center logo" src={props.logo} alt="logo"/>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <NorthWeb.Site:Component.Header.MenuItemsRenderer items={props.menuItems}/>
+                    </nav>
+                </div>
+            </div>
+            <div class="header flex-row bg-image" style={'background-image: url(' + props.background + ')'}>
+                <div class="container h-100">
+                    <div class="flex-row h-100">
+                        <div class="d-flex flex-column justify-content-between h-100">
+                            <div class="text-center pt-5">
+                                <h1 @if.has={props.headline}>
+                                    {props.headline}
+                                </h1>
+                            </div>
+                            {props.button}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {props.buttonMobile}
         </header>
     `
 
-	@cache {
-		mode = 'cached'
-		entryIdentifier {
-			documentNode = ${documentNode}
-		}
-		entryTags {
-			1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
-		}
-	}
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
 }

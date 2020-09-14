@@ -1,0 +1,34 @@
+prototype(NorthWeb.Site:Content.PartnerItem) < prototype(Neos.Neos:ContentComponent) {
+    src = Neos.Fusion:Case {
+        image {
+            condition = ${q(node).property('image') ? true : false}
+            renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                asset = ${q(node).property('image')}
+                width = 150
+            }
+        }
+        dummyImage {
+            condition = ${site.context.inBackend}
+            renderer = Sitegeist.Kaleidoscope:DummyImageSource {
+                width = 200
+                height = 100
+            }
+        }
+    }
+
+    alternativeText = ${q(node).property('alternativeText')}
+
+    link = ${q(node).property('link')}
+
+    renderer = afx`
+        <div class="col align-self-center text-center p-2">
+            <Carbon.Link:Link link={props.link} title={props.alternativeText} renderDefaultTagIfNoLink={true}>
+                <Sitegeist.Lazybones:Image
+                        lazy={true}
+                        imageSource={props.src}
+                        alt={props.alternativeText}/>
+            </Carbon.Link:Link>
+
+        </div>
+    `
+}

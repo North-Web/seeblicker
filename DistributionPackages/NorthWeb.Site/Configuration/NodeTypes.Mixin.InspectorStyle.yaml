@@ -1,0 +1,9 @@
+'NorthWeb.Site:Mixin.InspectorStyle':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        style:
+          label: 'Style'
+          position: 1
+          icon: 'icon-palette'

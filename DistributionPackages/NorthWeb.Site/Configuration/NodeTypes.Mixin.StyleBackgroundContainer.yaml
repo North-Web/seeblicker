@@ -1,0 +1,22 @@
+'NorthWeb.Site:Mixin.StyleBackgroundContainer':
+  abstract: true
+  properties:
+    styleBackgroundContainer:
+      type: string
+      defaultValue: 'normal'
+      ui:
+        label: 'Hintergrund'
+        reloadIfChanged: true
+        inspector:
+          group: 'style'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              normal:
+                label: 'normal'
+              bg-lightBrown:
+                label: 'hellbraun'
+              bg-lightBlue:
+                label: 'hellblau'
+              bg-lightGrey:
+                label: 'hellgrau'

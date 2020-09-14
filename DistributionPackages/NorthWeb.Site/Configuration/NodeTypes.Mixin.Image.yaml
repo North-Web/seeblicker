@@ -18,8 +18,8 @@
     inspector:
       groups:
         image:
-          label: 'Image'
-          position: 5
+          label: 'Bild'
+          position: 20
           icon: 'icon-image'
   properties:
     image:

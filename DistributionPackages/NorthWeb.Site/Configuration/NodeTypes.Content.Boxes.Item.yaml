@@ -1,0 +1,73 @@
+'NorthWeb.Site:Content.Boxes.Item':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorGeneral': true
+    'NorthWeb.Site:Constraint.Content.Restricted': true
+  ui:
+    label: Box
+    icon: icon-square
+    position: 10
+    inlineEditable: true
+  properties:
+    text:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Text eingeben...'
+            hyphens: true
+      options:
+        silhouette: codeq.text.free
+    icon:
+      type: string
+      defaultValue: 'none'
+      ui:
+        label: 'Icon'
+        position: 100
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              none:
+                label: 'Kein Icon'
+              info:
+                label: 'Info'
+              car:
+                label: 'Auto'
+              train:
+                label: 'Zug'
+              ring:
+                label: 'Klingel'
+              menu:
+                label: 'Menü'
+              people:
+                label: 'Menschen'
+              discount:
+                label: 'Rabatt'
+              ship:
+                label: 'Schiff'
+              facebook:
+                label: 'Facebook'
+              instagram:
+                label: 'Instagram'
+    buttonText:
+      type: string
+      defaultValue: 'mehr erfahren'
+      ui:
+        label: 'Button Text'
+        position: 200
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editorOptions:
+            placeholder: 'Button Text'
+    buttonLink:
+      type: string
+      ui:
+        label: 'Button Link'
+        position: 300
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

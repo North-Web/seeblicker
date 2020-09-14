@@ -13,12 +13,50 @@ prototype(NorthWeb.Site:Component.Footer) < prototype(Neos.Neos:ContentComponent
         }
     }
 
+    footerPartner = Neos.Neos:ContentCollection {
+        nodePath = 'footerPartner'
+        tagName = 'div'
+        attributes {
+            class = 'row'
+        }
+    }
+
     renderer = afx`
-        <footer class="main-footer">
-            <div>{props.footerInfo}</div>
-            <div>&copy; {props.year}</div>
-            {props.footerItems}
+        <footer class="footer mt-auto">
+            <div class="container">
+                <div class="partner py-4">
+                    {props.footerPartner}
+                </div>
+            </div>
+            <div class="footerBottom text-center py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md align-self-center text-center p-2">
+                            <address>
+                                <div class="script">Seeblick</div>
+                                {props.footerInfo}
+                            </address>
+                        </div>
+                        <div class="col align-self-center text-center p-2 font-weight-lighter social">
+                            <a target="_blank" href="https://www.facebook.com/seeblick" title="Facebook">
+                                <div class="icon facebook">
+                                </div>
+                            </a>
+                            <a target="_blank" title="Instagram" href="https://www.instagram.com/seeblicker/?hl=de">
+                                <div class="icon instagram">
+                                </div>
+                            </a><br/>
+                            &copy; Copyright {props.year} Seeblick
+                        </div>
+                        <div class="col align-self-center text-center p-2 serviceNav">
+                            <div class="script">Service</div>
+                            {props.footerItems}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
+
     `
 
     @cache {

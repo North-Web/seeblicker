@@ -1,0 +1,96 @@
+.swiperBadge {
+  position: relative;
+  .actionButtonWrap {
+    position: absolute;
+    left: 20px;
+    top: -80px;
+  }
+}
+
+.contentSwiper {
+  .text {
+    color: $base-color-text;
+
+    h3 {
+      color: $base-color;
+    }
+  }
+  .swiperHeadline {
+    position: absolute;
+    font-family: script, sans-serif;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 3rem;
+  }
+  .swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    .swiperText {
+      text-align: center;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: -20px;
+      color: #fff;
+      line-height: 1rem;
+    }
+  }
+
+  .swiperText, .swiperHeadline {
+    transition: all 0.5s;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    color: #fff;
+    text-shadow: 1px 2px 2px rgba(48, 95, 127, 0.8);
+  }
+
+  .swiper-slide.swiper-slide-active {
+    opacity: 1;
+
+    .swiperText, .swiperHeadline {
+      opacity: 1;
+    }
+  }
+
+  .swiper-slide {
+    opacity: 0.5;
+
+    .swiperText, .swiperHeadline {
+      opacity: 0;
+    }
+    .bg-lightBrown {
+      color: #fff;
+    }
+    .bg-lightBlue {
+      color: #fff;
+    }
+    .bg-lightGrey {
+      color: $base-color-text;
+    }
+  }
+
+  &.bg-lightBrown {
+    background-color: $base-color-lightBrown;
+    .text {
+      color: $base-color-darkBrown;
+
+      h3 {
+        color: $base-color-darkBrown;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,87 @@
+'NorthWeb.Site:Mixin.ActionButton':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        actionButton:
+          label: 'Button'
+          position: 10
+          icon: 'icon-circle'
+  properties:
+    actionButtonStyle:
+      type: string
+      defaultValue: 'blue'
+      ui:
+        label: 'Hintergrund'
+        reloadIfChanged: true
+        inspector:
+          group: 'actionButton'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              blue:
+                label: 'blau'
+              lightBlue:
+                label: 'hellblau'
+              brown:
+                label: 'braun'
+              lightBrown:
+                label: 'hellbraun'
+    actionButtonHeadline:
+      type: string
+      ui:
+        label: 'Überschrift'
+        reloadIfChanged: true
+        inspector:
+          group: 'actionButton'
+          editorOptions:
+            placeholder: 'Überschrift'
+    actionButtonText:
+      type: string
+      ui:
+        label: 'Text'
+        reloadIfChanged: true
+        inspector:
+          group: 'actionButton'
+          editorOptions:
+            placeholder: 'Text'
+    actionButtonIcon:
+      type: string
+      defaultValue: 'none'
+      ui:
+        label: 'Icon'
+        reloadIfChanged: true
+        inspector:
+          group: 'actionButton'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              none:
+                label: 'Kein Icon'
+              info:
+                label: 'Info'
+              car:
+                label: 'Auto'
+              train:
+                label: 'Zug'
+              ring:
+                label: 'Klingel'
+              menu:
+                label: 'Menü'
+              people:
+                label: 'Menschen'
+              discount:
+                label: 'Rabatt'
+              ship:
+                label: 'Schiff'
+              facebook:
+                label: 'Facebook'
+              instagram:
+                label: 'Instagram'
+    actionButtonLink:
+      type: string
+      ui:
+        reloadIfChanged: true
+        inspector:
+          group: 'actionButton'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

@@ -1,9 +1,28 @@
 prototype(NorthWeb.Site:Content.Text) < prototype(Neos.Neos:ContentComponent) {
+    title = Neos.Neos:Editable {
+        property = 'title'
+    }
     text = Neos.Neos:Editable {
         property = 'text'
     }
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentText text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        4 = ${q(node).property('styleClass')}
+        @glue = ' '
+    }
 
     renderer = afx`
-        <div class="text">{props.text}</div>
+        <div class={props.styleClass} >
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div>{props.title}</div>
+                        <div>{props.text}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     `
 }

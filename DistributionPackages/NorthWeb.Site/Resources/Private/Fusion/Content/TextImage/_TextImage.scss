@@ -1,0 +1,65 @@
+.contentImageText {
+  .text {
+    color: #fff;
+    &.blue {
+      h2 {
+        color: $base-color-light;
+      }
+      background-color: $base-color;
+    }
+    &.lightBlue {
+      h2 {
+        color: $base-color;
+      }
+      background-color: $base-color-light;
+    }
+    &.brown {
+      h2 {
+        color: $base-color-brown;
+      }
+      background-color: $base-color-darkBrown;
+    }
+    &.lightBrown {
+      h2 {
+        color: $base-color-darkBrown;
+      }
+      background-color: $base-color-brown;
+    }
+  }
+  .actionButtonWrap {
+    position: absolute;
+    top: -80px;
+    left: 100px;
+  }
+  &.textLeft {
+    .actionButtonWrap {
+      top: -80px;
+      left: auto;
+      right: 100px;
+    }
+  }
+  .textWrap {
+    z-index: 10;
+  }
+  .imgWrap {
+    z-index: 1;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+  .contentImageText {
+    .textWrap {
+      margin-left: -190px;
+    }
+    &.textLeft {
+      .textWrap {
+        margin-left: 0;
+      }
+      .imgWrap {
+        margin-left: -190px;
+      }
+    }
+  }
+}

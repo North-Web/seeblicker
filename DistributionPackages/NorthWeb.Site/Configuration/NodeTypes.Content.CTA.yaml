@@ -1,0 +1,60 @@
+'NorthWeb.Site:Content.CTA':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackground': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+  ui:
+    label: CTA
+    icon: icon-external-link-alt
+    position: 40
+    inlineEditable: true
+    inspector:
+      groups:
+        style:
+          position: 10
+        link:
+          label: 'Button'
+          position: 20
+          icon: 'icon-link'
+  properties:
+    styleClass:
+      defaultValue: 'blue'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              normal: []
+    paddingTop:
+      defaultValue: 'pt-0'
+    paddingBottom:
+      defaultValue: 'pb-0'
+    title:
+      options:
+        silhouette: 'codeq.text.plain'
+    text:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Text eingeben...'
+            hyphens: true
+      options:
+        silhouette: codeq.text.plain
+    buttonText:
+      type: string
+      defaultValue: 'mehr erfahren'
+      ui:
+        label: 'Button Text'
+        reloadIfChanged: true
+        inspector:
+          group: 'link'
+          editorOptions:
+            placeholder: 'Button Text'
+    buttonLink:
+      type: string
+      ui:
+        label: 'Button Link'
+        reloadIfChanged: true
+        inspector:
+          group: 'link'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

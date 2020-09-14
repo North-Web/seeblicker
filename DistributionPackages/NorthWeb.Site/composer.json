@@ -3,8 +3,8 @@
     "description": "A Neos website",
     "type": "neos-site",
     "require": {
-        "neos/neos": "^5.2",
-        "neos/neos-ui": "^5.2",
+        "neos/neos": "~5.3.0",
+        "neos/neos-ui": "~5.3.0",
         "neos/neos-setup": "*",
         "neos/fusion-afx": "~1.2",
         "neos/googleanalytics": "^3.2",
@@ -24,7 +24,8 @@
         "sitegeist/silhouettes": "~1.1",
         "sitegeist/lazybones": "~2.1",
 
-        "neos/nodetypes-contentreferences": "*"
+        "neos/nodetypes-contentreferences": "*",
+        "neos/form-builder": "^2.1"
     },
     "extra": {
         "neos": {

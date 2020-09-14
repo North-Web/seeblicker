@@ -1,18 +1,23 @@
-
 'NorthWeb.Site:Content.Text':
   superTypes:
     'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackground': true
+    'NorthWeb.Site:Mixin.StylePadding': true
   ui:
     label: Text
     icon: icon-file-text
-    position: 200
+    position: 10
     inlineEditable: true
   properties:
+    title:
+      options:
+        silhouette: 'codeq.text.title'
     text:
       ui:
         inline:
           editorOptions:
-            placeholder: '<p>Enter text here...</p>'
+            placeholder: '<p>Text eingeben...</p>'
             hyphens: true
       options:
         silhouette: codeq.text.free

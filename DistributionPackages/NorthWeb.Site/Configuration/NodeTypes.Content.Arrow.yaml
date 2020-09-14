@@ -1,0 +1,12 @@
+'NorthWeb.Site:Content.Arrow':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+  ui:
+    label: Pfeil
+    icon: angle-double-down
+    position: 50
+  properties:
+    title:
+      defaultValue: 'Pfeil'

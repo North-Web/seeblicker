@@ -1,0 +1,105 @@
+'NorthWeb.Site:Content.TextImage':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackgroundContainer': true
+    'NorthWeb.Site:Mixin.StyleBackground': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+    'NorthWeb.Site:Mixin.Image': true
+    'NorthWeb.Site:Mixin.ActionButton': true
+  ui:
+    label: Text und Bild
+    icon: icon-id-card
+    position: 20
+    inlineEditable: true
+    inspector:
+      groups:
+        style:
+          position: 10
+        actionButton:
+          label: Kreis-Button
+          position: 20
+        image:
+          position: 30
+        link:
+          label: 'Button'
+          position: 40
+          icon: 'icon-link'
+  properties:
+    styleBackgroundContainer:
+      ui:
+        label: 'Hintergrund gesamt'
+        position: 100
+    paddingTop:
+      ui:
+        position: 200
+    paddingBottom:
+      ui:
+        position: 300
+    orientation:
+      type: string
+      defaultValue: 'right'
+      ui:
+        position: 400
+        label: 'Layout'
+        reloadIfChanged: true
+        inspector:
+          group: 'style'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              right:
+                label: 'Bild | Text'
+              left:
+                label: 'Text | Bild'
+    styleClass:
+      defaultValue: 'blue'
+      ui:
+        position: 500
+        label: 'Hintergrund Text-Box'
+        inspector:
+          editorOptions:
+            values:
+              normal: ~
+    title:
+      options:
+        silhouette: 'codeq.text.title'
+    text:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: '<p>Text eingeben...</p>'
+            hyphens: true
+      options:
+        silhouette: codeq.text.free
+    image:
+      ui:
+        inspector:
+          editorOptions:
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 9
+                  height: 6
+    actionButtonHeadline: []
+    actionButtonIcon: []
+    actionButtonLink: []
+    buttonText:
+      type: string
+      defaultValue: 'mehr erfahren'
+      ui:
+        label: 'Button Text'
+        reloadIfChanged: true
+        inspector:
+          group: 'link'
+          editorOptions:
+            placeholder: 'Button Text'
+    buttonLink:
+      type: string
+      ui:
+        label: 'Button Link'
+        reloadIfChanged: true
+        inspector:
+          group: 'link'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

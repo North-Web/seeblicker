@@ -1,0 +1,22 @@
+.contentBoxen {
+  .boxItem {
+    border: 1px solid $base-color;
+    position: relative;
+  }
+
+  .icon {
+    margin-top: -25px;
+  }
+
+  .button {
+    margin-bottom: -20px;
+    .btn {
+      color: #fff;
+      background-color: $base-color;
+      border-color: $base-color;
+      &:hover {
+        background-color: $base-color-light;
+      }
+    }
+  }
+}

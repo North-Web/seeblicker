@@ -1,0 +1,37 @@
+prototype(NorthWeb.Site:Content.CTA) < prototype(Neos.Neos:ContentComponent) {
+    title = Neos.Neos:Editable {
+        property = 'title'
+    }
+    text = Neos.Neos:Editable {
+        property = 'text'
+    }
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentCTA text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        4 = ${q(node).property('styleClass')}
+        @glue = ' '
+    }
+
+    link = Carbon.Link:Link {
+        link = ${q(node).property('buttonLink')}
+        additionalClass = ${'btn btn-outline-light ml-lg-5'}
+        title = ${q(node).property('buttonText')}
+        content = ${q(node).property('buttonText')}
+        @if.hasLink = ${q(node).property('buttonLink') ? true : false}
+    }
+
+    renderer = afx`
+        <div class={props.styleClass} >
+            <div class="ctaWrap">
+                <div class="container">
+                    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center py-4">
+                        <div class="headline pr-lg-3">{props.title}</div>
+                        <div class="pb-3 pb-lg-0">{props.text}</div>
+                        <div>{props.link}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+}

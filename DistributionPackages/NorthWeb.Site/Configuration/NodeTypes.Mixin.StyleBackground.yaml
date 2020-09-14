@@ -1,0 +1,24 @@
+'NorthWeb.Site:Mixin.StyleBackground':
+  abstract: true
+  properties:
+    styleClass:
+      type: string
+      defaultValue: 'normal'
+      ui:
+        label: 'Hintergrund'
+        reloadIfChanged: true
+        inspector:
+          group: 'style'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              normal:
+                label: 'normal'
+              blue:
+                label: 'blau'
+              lightBlue:
+                label: 'hellblau'
+              brown:
+                label: 'braun'
+              lightBrown:
+                label: 'hellbraun'

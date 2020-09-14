@@ -1,0 +1,16 @@
+prototype(NorthWeb.Site:Content.Arrow) < prototype(Neos.Neos:ContentComponent) {
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentArrow text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        @glue = ' '
+    }
+    arrow = Neos.Fusion:ResourceUri {
+        path = 'resource://NorthWeb.Site/Public/Frontend/img/arrows.png'
+    }
+    renderer = afx`
+        <div class={props.styleClass}>
+            <img src={props.arrow} alt="arrow"/>
+        </div>
+    `
+}

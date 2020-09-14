@@ -1,0 +1,32 @@
+.contentCTA {
+  color: #fff;
+  .btn {
+    background-color: #fff;
+    color: $base-color-darkBrown;
+  }
+
+  .headline {
+    font-family: script, sans-serif;
+    font-size: 2rem;
+  }
+  &.brown {
+    .ctaWrap {
+      background-color: $base-color-darkBrown;
+    }
+  }
+  &.lightBrown {
+    .ctaWrap {
+      background-color: $base-color-brown;
+    }
+  }
+  &.blue {
+    .ctaWrap {
+      background-color: $base-color;
+    }
+  }
+  &.lightBlue {
+    .ctaWrap {
+      background-color: $base-color-light;
+    }
+  }
+}

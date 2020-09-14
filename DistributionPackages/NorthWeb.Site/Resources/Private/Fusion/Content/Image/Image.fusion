@@ -1,14 +1,8 @@
-/**
- * This code is feasable for production, and renders an image with LazyBones.
- *
- * To better learn Neos take a look at NorthWeb.Site:Content.BasicImage,
- * which renders our images as an img tag.
- */
 prototype(NorthWeb.Site:Content.Image) < prototype(Neos.Neos:ContentComponent) {
 
-    # if the current node has previous siblings it is not the
-	# first content and should be loaded lazy otherwise not
-	lazy = ${q(node).prev().is()}
+    text = ${String.nl2br(q(node).property('text'))}
+
+    lazy = ${q(node).prev().is()}
 
     src = Neos.Fusion:Case {
         image {
@@ -19,21 +13,31 @@ prototype(NorthWeb.Site:Content.Image) < prototype(Neos.Neos:ContentComponent) {
         }
         dummyImage {
             condition = ${site.context.inBackend}
-            renderer = Sitegeist.Kaleidoscope:DummyImageSource
+            renderer = Sitegeist.Kaleidoscope:DummyImageSource {
+                width = 1200
+                height = 300
+            }
         }
     }
     alternativeText = ${q(node).property('alternativeText')}
 
     renderer = afx`
-        <Sitegeist.Lazybones:Image
-            class="container-image"
-            lazy={true}
-            lazyWidth={200}
-            imageSource={props.src}
-            srcset="320w, 400w, 480w, 600w, 640w, 720w, 768w, 800w, 960w, 1024px, 1280w, 1440w, 1600w, 1680w, 1920w, 2560w"
-            sizes={props.sizes}
-            alt={props.alternativeText}
+        <div class="contentImage">
+            <Sitegeist.Lazybones:Image
+                    class="w-100"
+                    lazy={true}
+                    lazyWidth={200}
+                    imageSource={props.src}
+                    srcset="320w, 400w, 480w, 600w, 640w, 720w, 768w, 800w, 960w, 1024px, 1280w, 1440w, 1600w, 1680w, 1920w, 2560w"
+                    alt={props.alternativeText}
             />
-	`
-
+            <div class="container">
+                <div class="d-flex align-items-center text-center h-100">
+                    <h3 @if.hasText={props.text} class="w-100">
+                        {props.text}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    `
 }

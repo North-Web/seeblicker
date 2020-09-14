@@ -1,23 +1,70 @@
 prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fusion:Component) {
     items = false
-
+    voucher = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:voucher')}
+    booking = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:booking')}
+    linkNode = ${q(site).find('#4a43e1f4-08a1-42a0-96da-49875355ecb1').get(0)}
     @if.has = ${this.items}
     renderer = afx`
-        <ul class="navigation">
-            <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer">
-                <li class={'navigation-item ' + (menuItem.state ? 'navigation-item--state-' + menuItem.state : '') }>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer" iterationName="iterate">
+                <li class={'nav-item ' + (menuItem.state ? menuItem.state : '') + (menuItem.subItems ? ' dropdown' : '') }>
                     <Carbon.Link:Link
                         node={menuItem.node}
                         backendLink={true}
-                        renderDefaultTagIfNoLink={true}>
+                        renderDefaultTagIfNoLink={true}
+                        attributes.id={'navbarDropdownMenuLink-' + iterate.cycle}
+                        attributes.id.@if.hasSub={(menuItem.subItems ? true : false)}
+                        attributes.role={'button'}
+                        attributes.role.@if.hasSub={(menuItem.subItems ? true : false)}
+                        attributes.data-toggle={'dropdown'}
+                        attributes.data-toggle.@if.hasSub={(menuItem.subItems ? true : false)}
+                        attributes.aria-haspopup={'true'}
+                        attributes.aria-haspopup.@if.hasSub={(menuItem.subItems ? true : false)}
+                        attributes.aria-expanded={'false'}
+                        attributes.aria-expanded.@if.hasSub={(menuItem.subItems ? true : false)}
+                        additionalClass={'nav-link' + (menuItem.subItems ? ' dropdown-toggle' : '')}>
                         { menuItem.label }
                     </Carbon.Link:Link>
 
-                    <NorthWeb.Site:Component.Header.MenuItemsRenderer
-                        items={menuItem.subItems}
+                    <NorthWeb.Site:Component.Header.MenuSubItemsRenderer
+                        items={menuItem.subItems} iterate={iterate.cycle}
                         />
                 </li>
             </Neos.Fusion:Loop>
         </ul>
+            <form class="form-inline">
+                <a class="btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0" href="https://www.ovoucher.de/seeblick/" target="_blank" role="button">{props.voucher}</a>
+            </form>
+            <form class="form-inline">
+                <Carbon.Link:Link
+                        node={props.linkNode}
+                        additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
+                    {props.booking}
+                </Carbon.Link:Link>
+            </form>
+            <form class="form-inline ml-auto">
+                <NorthWeb.Site:Component.DimensionMenu/>
+            </form>
+        </div>
+    `
+}
+
+prototype(NorthWeb.Site:Component.Header.MenuSubItemsRenderer) < prototype(Neos.Fusion:Component) {
+    items = false
+    iterate = ''
+    @if.has = ${this.items}
+    renderer = afx`
+        <div class="dropdown-menu" aria-labelledby={'navbarDropdownMenuLink-' + props.iterate}>
+                <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer" iterationName="iterate">
+                    <Carbon.Link:Link
+                            node={menuItem.node}
+                            backendLink={true}
+                            renderDefaultTagIfNoLink={true}
+                            additionalClass={'dropdown-item ' + (menuItem.state ? menuItem.state : '')}>
+                    { menuItem.label }
+                    </Carbon.Link:Link>
+                </Neos.Fusion:Loop>
+        </div>
     `
 }

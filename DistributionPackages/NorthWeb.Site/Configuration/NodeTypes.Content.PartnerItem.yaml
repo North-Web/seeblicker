@@ -1,0 +1,38 @@
+'NorthWeb.Site:Content.PartnerItem':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Constraint.Content.Restricted': true
+  ui:
+    label: Partner
+    icon: icon-image
+    position: 10
+    inspector:
+      groups:
+        image:
+          label: 'Bild'
+          position: 20
+          icon: 'icon-image'
+  properties:
+    image:
+      ui:
+        inspector:
+          group: 'image'
+          editorOptions:
+            features:
+              crop: true
+              resize: true
+      options:
+        silhouette: codeq.image.asset
+    alternativeText:
+      ui:
+        inspector:
+          group: 'image'
+      options:
+        silhouette: codeq.image.alternativeText
+    link:
+      type: string
+      ui:
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

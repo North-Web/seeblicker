@@ -5,11 +5,12 @@ Sitegeist:
         text:
           title:
             type: string
+            defaultValue: '<h2>Überschrift</h2>'
             ui:
               inlineEditable: true
               inline:
                 editorOptions:
-                  placeholder: '<h2>Enter headline here...</h2>'
+                  placeholder: 'Überschrift'
                   hyphens: true
                   formatting:
                     h1: true
@@ -25,7 +26,7 @@ Sitegeist:
               inlineEditable: true
               inline:
                 editorOptions:
-                  placeholder: 'Enter headline here...'
+                  placeholder: 'Überschrift...'
                   autoparagraph: false
                   hyphens: true
           free:
@@ -35,7 +36,7 @@ Sitegeist:
               inlineEditable: true
               inline:
                 editorOptions:
-                  placeholder: '<p>Enter headline here...</p>'
+                  placeholder: '<p>Überschrift...</p>'
                   autoparagraph: true
                   hyphens: true
                   formatting:
@@ -67,7 +68,7 @@ Sitegeist:
           asset:
             type: Neos\Media\Domain\Model\ImageInterface
             ui:
-              label: 'Image'
+              label: 'Bild'
               reloadIfChanged: true
               inspector:
                 group: 'general'
@@ -75,7 +76,7 @@ Sitegeist:
           alternativeText:
             type: string
             ui:
-              label: 'Alternative image text'
+              label: 'Alternativ Bild Text'
               reloadIfChanged: false
               inspector:
                 group: 'general'

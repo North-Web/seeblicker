@@ -1,0 +1,33 @@
+prototype(NorthWeb.Site:Component.DimensionMenu) < prototype(Neos.Fusion:Component) {
+    menuItems = Neos.Neos:DimensionsMenuItems {
+        dimension = 'language'
+    }
+
+    renderer = afx`
+        <div class="dropdown">
+                <Neos.Fusion:Loop items={props.menuItems}>
+                    <button @if.isCurrent={item.state == 'current'} class="btn btn-sm btn-outline-light dropdown-toggle ml-lg-2 mt-2 mt-lg-0" type="button" id="languageMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{item.label}</button>
+                </Neos.Fusion:Loop>
+            <div class="dropdown-menu" aria-labelledby="languageMenuButton">
+                <Neos.Fusion:Loop items={props.menuItems}>
+                    <Neos.Neos:NodeLink node={item.node}
+                                        attributes.class={'dropdown-item ' + item.state}
+                                        @if.hasNode={item.node}>
+                            {item.label}
+                    </Neos.Neos:NodeLink>
+                    <span @if.hasNoNode={!item.node} class="dropdown-item disabled" >{item.label}</span>
+                </Neos.Fusion:Loop>
+            </div>
+        </div>
+    `
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
+}

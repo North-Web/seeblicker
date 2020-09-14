@@ -1,0 +1,43 @@
+.contentText {
+  color: $base-color-text;
+
+  h1, h2, h3, h4, h5 {
+    color: $base-color;
+  }
+
+  &.blue {
+    background-color: $base-color;
+    color: #fff;
+
+    h1, h2, h3, h4, h5 {
+      color: $base-color-light;
+    }
+  }
+
+  &.lightBlue {
+    h1, h2, h3, h4, h5 {
+      color: $base-color;
+    }
+
+    color: #fff;
+    background-color: $base-color-light;
+  }
+
+  &.brown {
+    h1, h2, h3, h4, h5 {
+      color: $base-color-brown;
+    }
+
+    background-color: $base-color-darkBrown;
+    color: #fff;
+  }
+
+  &.lightBrown {
+    h1, h2, h3, h4, h5 {
+      color: $base-color-darkBrown;
+    }
+
+    background-color: $base-color-brown;
+    color: #fff;
+  }
+}

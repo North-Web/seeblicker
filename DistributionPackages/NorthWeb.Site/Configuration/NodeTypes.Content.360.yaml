@@ -1,0 +1,65 @@
+'NorthWeb.Site:Content.360':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackground': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+  ui:
+    label: 360° Bilder
+    icon: icon-image
+    position: 80
+  properties:
+    room:
+      type: string
+      ui:
+        label: '360° Bild'
+        reloadIfChanged: true
+        inspector:
+          group: 'style'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              1_Einzimmer-Wohnung:
+                label: '1_Einzimmer-Wohnung'
+              1_Familiensuite_Wohnzimmer:
+                label: '1_Familiensuite_Wohnzimmer'
+              1_Juniorzimmer_Standard:
+                label: '1_Juniorzimmer_Standard'
+              1_Maisonette-Wohnung_Wohnzimmer:
+                label: '1_Maisonette-Wohnung_Wohnzimmer'
+              1_Studio-Wohnung_Wohnzimmer:
+                label: '1_Studio-Wohnung_Wohnzimmer'
+              1_Zweizimmer-Wohnung_Wohnzimmer:
+                label: '1_Zweizimmer-Wohnung_Wohnzimmer'
+              2_Einzimmer-Wohnung-Bad:
+                label: '2_Einzimmer-Wohnung-Bad'
+              2_Familiensuite-Schlafzimmer:
+                label: '2_Familiensuite-Schlafzimmer'
+              2_Juniorzimmer_Standard_Bad:
+                label: '2_Juniorzimmer_Standard_Bad'
+              2_Maisonette-Wohnung_Schlafzimmer:
+                label: '2_Maisonette-Wohnung_Schlafzimmer'
+              2_Studio-Wohnung_Schlafzimmer:
+                label: '2_Studio-Wohnung_Schlafzimmer'
+              2_Zweizimmer-Wohnung_Schlafzimmer:
+                label: '2_Zweizimmer-Wohnung_Schlafzimmer'
+              3_Familiensuite_Kinderzimmer:
+                label: '3_Familiensuite_Kinderzimmer'
+              3_Maisonette-Wohnung_Flur_oben:
+                label: '3_Maisonette-Wohnung_Flur_oben'
+              3_Studio-Wohnung_Kinderzimmer:
+                label: '3_Studio-Wohnung_Kinderzimmer'
+              3_Zweizimmer-Wohnung_Bad:
+                label: '3_Zweizimmer-Wohnung_Bad'
+              4_Familiensuite_Bad:
+                label: '4_Familiensuite_Bad'
+              4_Maisonette-Wohnung_Kinderzimmer_unterm_Dach:
+                label: '4_Maisonette-Wohnung_Kinderzimmer_unterm_Dach'
+              4_Studio-Wohnung_Bad:
+                label: '4_Studio-Wohnung_Bad'
+              5_Maisonette-Wohnung_Kinderzimmer:
+                label: '5_Maisonette-Wohnung_Kinderzimmer'
+              6_Maisonette-Wohnung_Bad:
+                label: '6_Maisonette-Wohnung_Bad'
+              WohnZimmer:
+                label: 'WohnZimmer'

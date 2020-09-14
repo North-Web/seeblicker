@@ -1,0 +1,21 @@
+'NorthWeb.Site:Content.Boxes':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackgroundContainer': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+  ui:
+    label: Boxen
+    icon: icon-columns
+    position: 60
+  properties:
+    title:
+      options:
+        silhouette: 'codeq.text.title'
+  childNodes:
+    items:
+      type: Neos.Neos:ContentCollection
+      constraints:
+        nodeTypes:
+          '*': false
+          'NorthWeb.Site:Content.Boxes.Item': true

@@ -15,9 +15,9 @@ Neos:
         nodeTree:
           # number of levels inside the node tree which shall be loaded eagerly, at start.
           # if you have lots of nodes you should maybe reduce this number of elements.
-          loadingDepth: 2
+          loadingDepth: 99
         structureTree:
-          loadingDepth: 2
+          loadingDepth: 99
     fusion:
       autoInclude:
         NorthWeb.Site: true
@@ -29,7 +29,15 @@ Neos:
     Ui:
       frontendConfiguration:
         hotkeys: ~
-
+  Form:
+    presets:
+      default:
+        formElementTypes:
+          'Neos.Form:Base':
+            renderingOptions:
+              templatePathPattern: 'resource://NorthWeb.Site/Private/Form/{@type}.html'
+              partialPathPattern: 'resource://NorthWeb.Site/Private/Form/Partials/{@type}.html'
+              layoutPathPattern: 'resource://NorthWeb.Site/Private/Form/Layouts/{@type}.html'
 Carbon:
   Link:
     defaultPhoneCountryCode: '0049'

@@ -1,0 +1,26 @@
+prototype(NorthWeb.Site:Content.Boxes.Item) < prototype(Neos.Neos:ContentComponent) {
+    text = Neos.Neos:Editable {
+        property = 'text'
+    }
+    link = Carbon.Link:Link {
+        link = ${q(node).property('buttonLink')}
+        additionalClass = ${'btn'}
+        title = ${q(node).property('buttonText')}
+        content = ${q(node).property('buttonText')}
+    }
+    icon = ${q(node).property('icon')}
+    buttonShow = ${q(node).property('buttonLink') ? true : false}
+    iconShow = ${q(node).property('icon')=='none' ? false : true}
+
+    renderer = afx`
+        <div class="col-lg-4 py-5 py-lg-0">
+            <div class="d-flex align-items-end flex-column h-100 boxItem">
+                <div @if.hasIcon={props.iconShow} class={'icon align-self-center ' + props.icon}></div>
+                <div class="text p-4 align-self-center">
+                    {props.text}
+                </div>
+                <div @if.hasLink={props.buttonShow} class="button align-self-center mt-auto">{props.link}</div>
+            </div>
+        </div>
+    `
+}

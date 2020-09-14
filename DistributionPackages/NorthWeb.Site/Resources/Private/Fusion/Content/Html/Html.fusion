@@ -1,0 +1,8 @@
+prototype(NorthWeb.Site:Content.Html) < prototype(Neos.Neos:ContentComponent) {
+    source = ${q(node).property('source')}
+    renderer = afx`
+        <div>
+            {props.source}
+        </div>
+    `
+}

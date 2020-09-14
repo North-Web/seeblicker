@@ -1,0 +1,69 @@
+$base-color: #305f7f;
+$base-color-light: #8dacc6;
+$base-color-brown: #9b907b;
+$base-color-darkBrown: #423f38;
+$base-color-lightBrown: #ede9e3;
+$base-color-grey: #6d778c;
+$base-color-text: #423f38;
+
+@font-face {
+  font-family: "script";
+  src: url(../fonts/SignPainter.otf) format("opentype");
+}
+h1, h2, h3, h4, h5 {
+  font-family: script, sans-serif;
+}
+.btn {
+  color: #fff;
+  border-radius: 0;
+  &:hover {
+    background-color: $base-color-light;
+  }
+}
+.bg-lightBrown {
+  background-color: $base-color-lightBrown;
+}
+.bg-lightBlue {
+  background-color: $base-color-light;
+}
+.bg-lightGrey {
+  background-color: $base-color-grey;
+}
+.bg-image {
+  background-position: center center ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.pb-6 {
+  padding-bottom: 6rem!important;
+}
+.pb-7 {
+  padding-bottom: 7rem!important;
+}
+.pb-8 {
+  padding-bottom: 8rem!important;
+}
+.pb-9 {
+  padding-bottom: 9rem!important;
+}
+.pb-10 {
+  padding-bottom: 10rem!important;
+}
+
+.pt-6 {
+  padding-top: 6rem!important;
+}
+.pt-7 {
+  padding-top: 7rem!important;
+}
+.pt-8 {
+  padding-top: 8rem!important;
+}
+.pt-9 {
+  padding-top: 9rem!important;
+}
+.pt-10 {
+  padding-top: 10rem!important;
+}

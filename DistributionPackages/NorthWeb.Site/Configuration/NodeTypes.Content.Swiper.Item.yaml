@@ -1,0 +1,54 @@
+'NorthWeb.Site:Content.Swiper.Item':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.Image': true
+    'NorthWeb.Site:Mixin.InspectorGeneral': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackgroundContainer': true
+    'NorthWeb.Site:Constraint.Content.Restricted': true
+  ui:
+    label: Swiper-Item
+    icon: icon-image
+    position: 10
+    inlineEditable: true
+    inspector:
+      groups:
+        image:
+          label: 'Bild'
+          position: 20
+          icon: 'icon-image'
+  properties:
+    text:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Text eingeben...'
+            hyphens: true
+      options:
+        silhouette: codeq.text.free
+    headline:
+      type: string
+      ui:
+        label: 'Text im Bild'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editorOptions:
+            placeholder: 'Überschrift'
+    styleBackgroundContainer:
+      defaultValue: 'bg-lightBlue'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              normal: []
+    image:
+      ui:
+        inspector:
+          editorOptions:
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 600
+                  height: 400

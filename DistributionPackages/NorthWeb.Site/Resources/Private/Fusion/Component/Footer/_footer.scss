@@ -1,0 +1,49 @@
+.footer {
+  .footerBottom {
+    background-color: $base-color;
+    color: #fff;
+  }
+  .script {
+    font-family: script, sans-serif;
+    display: block;
+    font-size: 2rem;
+  }
+  address {
+    font-weight: lighter;
+
+    a {
+      font-weight: normal;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .social {
+    a {
+      display: inline-block;
+    }
+
+    .icon {
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+  }
+
+  .serviceNav {
+    a, span {
+      display: block;
+      font-weight: lighter;
+      color: #fff;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+'NorthWeb.Site:Content.Html':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: HTML
+    icon: 'icon-code'
+    position: 90
+    inspector:
+      groups:
+        html:
+          label: Html
+          icon: 'icon-code'
+          position: 10
+  properties:
+    source:
+      type: string
+      defaultValue: '<p>HTML hier eingeben</p>'
+      ui:
+        label: Html
+        reloadIfChanged: true
+        inspector:
+          group: 'html'
+          editor: 'Neos.Neos/Inspector/Editors/CodeEditor'
+          editorOptions:
+            buttonLabel: Editor

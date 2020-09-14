@@ -1,0 +1,95 @@
+prototype(NorthWeb.Site:Content.TextImage) < prototype(Neos.Neos:ContentComponent) {
+    title = Neos.Neos:Editable {
+        property = 'title'
+    }
+    text = Neos.Neos:Editable {
+        property = 'text'
+    }
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentImageText text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        4 = ${q(node).property('styleBackgroundContainer')}
+        5 = ${q(node).property('orientation') == 'left' ? 'textLeft' : ''}
+        @glue = ' '
+    }
+    styleClassTextBox = Neos.Fusion:Join {
+        1 = ${'p-3 p-xl-5 text'}
+        2 = ${q(node).property('styleClass')}
+        @glue = ' '
+    }
+    styleClassTextButton = Neos.Fusion:Join {
+        1 = ${'actionButton p-4 '}
+        2 = ${q(node).property('actionButtonStyle')}
+        @glue = ' '
+    }
+    styleClassTextButtonMobile = Neos.Fusion:Join {
+        1 = ${'text-center w-100 actionButtonMobil p-3'}
+        2 = ${q(node).property('actionButtonStyle')}
+        @glue = ' '
+    }
+    styleClassImg = ${q(node).property('orientation') == 'left' ? 'col-lg-9 order-lg-last imgWrap' : 'col-lg-9 imgWrap'}
+    styleClassText = ${q(node).property('orientation') == 'left' ? 'col-lg-5 order-lg-first align-self-center textWrap' : 'col-lg-5 align-self-center textWrap'}
+
+    lazy = ${q(node).prev().is()}
+
+    src = Neos.Fusion:Case {
+        image {
+            condition = ${q(node).property('image') ? true : false}
+            renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                asset = ${q(node).property('image')}
+            }
+        }
+        dummyImage {
+            condition = ${site.context.inBackend}
+            renderer = Sitegeist.Kaleidoscope:DummyImageSource
+        }
+    }
+    alternativeText = ${q(node).property('alternativeText')}
+
+    actionButtonText = ${q(node).property('actionButtonText')}
+
+    link = Carbon.Link:Link {
+        link = ${q(node).property('buttonLink')}
+        additionalClass = ${'btn btn-outline-light'}
+        title = ${q(node).property('buttonText')}
+        content = ${q(node).property('buttonText')}
+        @if.hasLink = ${q(node).property('buttonLink') ? true : false}
+    }
+
+    renderer = afx`
+        <div class={props.styleClass}>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-lg-none">
+                        <div class={props.styleClassTextButtonMobile}>
+                            <h3>{props.actionButtonText}</h3>
+                        </div>
+                    </div>
+                    <div class={props.styleClassImg} >
+                        <Sitegeist.Lazybones:Image
+                                class="img-fluid"
+                                lazy={props.lazy}
+                                lazyWidth={200}
+                                imageSource={props.src}
+                                srcset="320w, 400w, 480w, 600w, 640w, 720w, 768w, 800w, 960w, 1024px"
+                                alt={props.alternativeText}
+                        />
+                        <div class="actionButtonWrap d-none d-lg-block">
+                            <div class={props.styleClassTextButton} >
+                                <span>{props.actionButtonText}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class={props.styleClassText} >
+                        <div class={props.styleClassTextBox}>
+                            <div>{props.title}</div>
+                            <div>{props.text}</div>
+                            {props.link}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+}

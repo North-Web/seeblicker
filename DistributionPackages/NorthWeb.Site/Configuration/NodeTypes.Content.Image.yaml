@@ -2,7 +2,35 @@
   superTypes:
     'Neos.Neos:Content': true
     'NorthWeb.Site:Mixin.Image': true
+    'NorthWeb.Site:Mixin.InspectorGeneral': true
   ui:
-    label: Image
-    icon: icon-picture
-    position: 300
+    label: Bild
+    icon: icon-image
+    position: 40
+    inlineEditable: true
+    inspector:
+      groups:
+        image:
+          position: 10
+  properties:
+    text:
+      type: 'string'
+      ui:
+        label: 'Text'
+        reloadIfChanged: true
+        inspector:
+          group: general
+          position: 300
+          editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
+          editorOptions:
+            rows: 3
+    image:
+      ui:
+        inspector:
+          editorOptions:
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 8
+                  height: 3

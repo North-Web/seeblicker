@@ -14,3 +14,4 @@
 /Tests/Selenium/settings.xml
 Build/Resources/Java/selenium-server-standalone*
 /"
+/DistributionPackages/NorthWeb.Site/Resources/Public/360/

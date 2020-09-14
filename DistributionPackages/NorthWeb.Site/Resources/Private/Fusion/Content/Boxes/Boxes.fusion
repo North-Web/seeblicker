@@ -1,0 +1,27 @@
+prototype(NorthWeb.Site:Content.Boxes) < prototype(Neos.Neos:ContentComponent) {
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentBoxen text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        4 = ${q(node).property('styleBackgroundContainer')}
+        @glue = ' '
+    }
+    title = Neos.Neos:Editable {
+        property = 'title'
+    }
+    items = Neos.Neos:ContentCollection {
+        nodePath = 'items'
+        tagName = 'div'
+        attributes {
+            class = 'd-flex row align-items-stretch justify-content-center pt-5'
+        }
+    }
+    renderer = afx`
+        <div class={props.styleClass}>
+            <div class="container">
+                <div>{props.title}</div>
+                {props.items}
+            </div>
+        </div>
+    `
+}

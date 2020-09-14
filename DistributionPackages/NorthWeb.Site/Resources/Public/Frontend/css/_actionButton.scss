@@ -1,0 +1,50 @@
+a.actionButton:hover {
+  text-decoration: none;
+}
+.actionButton {
+  height: 200px;
+  width: 200px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%; /* may require vendor prefixes */
+  -webkit-box-shadow: 5px 5px 7px 1px rgba(0, 0, 0,0.5);
+  -moz-box-shadow: 5px 5px 7px 1px rgba(0, 0, 0,0.5);
+  box-shadow: 5px 5px 7px 1px rgba(0, 0, 0,0.5);
+  font-size: 0.8rem;
+  p, h3 {
+    margin-bottom: 0;
+  }
+  span{
+    font-family: script, sans-serif;
+  }
+  span {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  &.lightBrown {
+    background-color: $base-color-brown;
+    color: #fff;
+  }
+  &.brown {
+    background-color: $base-color-darkBrown;
+    color: $base-color-brown;
+    p{
+      color: #fff;
+    }
+  }
+  &.blue {
+    background-color: $base-color;
+    color: $base-color-light;
+    p{
+      color: #fff;
+    }
+  }
+  &.lightBlue {
+    background-color: $base-color-light;
+    color: $base-color;
+    p{
+      color: #fff;
+    }
+  }
+}

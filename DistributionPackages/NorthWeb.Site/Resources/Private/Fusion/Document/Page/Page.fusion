@@ -5,7 +5,7 @@ prototype(NorthWeb.Site:Document.Page) < prototype(NorthWeb.Site:Document.Abstra
         }
 
         renderer = afx`
-            <main class="main">
+            <main role="main" class="flex-shrink-0">
                 {props.main}
             </main>
         `
