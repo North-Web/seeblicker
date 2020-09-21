@@ -50,15 +50,16 @@
 
 @media (min-width: 992px) {
   .contentImageText {
+    padding: 0 5%;
     .textWrap {
-      margin-left: -190px;
+      margin-left: -17%;
     }
     &.textLeft {
       .textWrap {
         margin-left: 0;
       }
       .imgWrap {
-        margin-left: -190px;
+        margin-left: -17%;
       }
     }
   }

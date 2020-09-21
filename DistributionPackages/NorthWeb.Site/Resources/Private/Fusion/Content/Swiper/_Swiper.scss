@@ -1,5 +1,6 @@
 .swiperBadge {
   position: relative;
+
   .actionButtonWrap {
     position: absolute;
     left: 20px;
@@ -11,10 +12,24 @@
   .text {
     color: $base-color-text;
 
-    h3 {
+    h1, h2, h3, h4, h5 {
       color: $base-color;
     }
   }
+
+  &.bg-lightBrown {
+    background-color: $base-color-lightBrown;
+
+    .text {
+      color: $base-color-darkBrown;
+
+      h1, h2, h3, h4, h5 {
+        color: $base-color;
+      }
+    }
+  }
+
+
   .swiperHeadline {
     position: absolute;
     font-family: script, sans-serif;
@@ -22,6 +37,7 @@
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     font-size: 3rem;
   }
+
   .swiper-slide {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -66,31 +82,29 @@
   }
 
   .swiper-slide {
-    opacity: 0.5;
+    opacity: 0;
+
+    &.swiper-slide-prev, &.swiper-slide-next {
+      opacity: 0.5;
+    }
 
     .swiperText, .swiperHeadline {
       opacity: 0;
     }
+
     .bg-lightBrown {
       color: #fff;
     }
+
     .bg-lightBlue {
       color: #fff;
     }
+
     .bg-lightGrey {
       color: $base-color-text;
     }
   }
 
-  &.bg-lightBrown {
-    background-color: $base-color-lightBrown;
-    .text {
-      color: $base-color-darkBrown;
 
-      h3 {
-        color: $base-color-darkBrown;
-      }
-    }
-  }
 }
 

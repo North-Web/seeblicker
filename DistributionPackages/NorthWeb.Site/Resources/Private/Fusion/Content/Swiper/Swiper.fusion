@@ -38,20 +38,20 @@ prototype(NorthWeb.Site:Content.Swiper) < prototype(Neos.Neos:ContentComponent) 
 
     renderer = afx`
         <div>
-            <div class="container swiperBadge">
+            <div @if.hasText={porps.actionButtonText} class="container swiperBadge">
                 <div class="actionButtonWrap d-none d-lg-block">
                     <div class={props.styleClassTextButton} >
                         <span>{props.actionButtonText}</span>
                     </div>
                 </div>
             </div>
-            <div class="d-lg-none">
+            <div @if.hasText={porps.actionButtonText} class="d-lg-none">
                 <div class={props.styleClassTextButtonMobile}>
                     <h3>{props.actionButtonText}</h3>
                 </div>
             </div>
             <div class={props.styleClass}>
-                <div class="container">
+                <div class="container-fluid px-1 px-md-5">
                     <div class="text text-center pb-5">
                         <div>
                             {props.title}

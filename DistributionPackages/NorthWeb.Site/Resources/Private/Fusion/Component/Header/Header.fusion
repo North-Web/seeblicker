@@ -30,7 +30,7 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
     button = Carbon.Link:Link {
         link = ${q(node).property('actionButtonLink')}
         additionalClass = Neos.Fusion:Join {
-            1 = ${'ml-auto align-content-end align-items-center flex-column p-4 mr-5 mb-5 actionButton d-none d-xl-flex'}
+            1 = ${'ml-auto align-items-center p-4 mr-5 mb-5 actionButton d-none d-xl-flex'}
             2 = ${q(node).property('actionButtonStyle')}
             @glue = ' '
         }
@@ -42,11 +42,16 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
             text = ${q(node).property('actionButtonText')}
             icon = ${q(node).property('actionButtonIcon')}
             renderer = afx`
-                <h3>{props.title}</h3>
-                <p>
+
+                <div class="d-flex align-self-center flex-column">
+                    <h3>{props.title}</h3>
+                    <p>
                     {props.text}
-                </p>
-                <div class={'mt-auto align-self-center icon ' + props.icon}>
+                    </p>
+                    <div class={'align-self-center icon ' + props.icon}>
+
+                </div>
+
                 </div>
             `
         }
@@ -99,7 +104,7 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
                 <div class="container h-100">
                     <div class="flex-row h-100">
                         <div class="d-flex flex-column justify-content-between h-100">
-                            <div class="text-center pt-5">
+                            <div class="text-center pt-3 pt-lg-8">
                                 <h1 @if.has={props.headline}>
                                     {props.headline}
                                 </h1>

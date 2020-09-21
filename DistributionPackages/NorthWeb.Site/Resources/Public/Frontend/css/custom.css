@@ -74,6 +74,27 @@ h1, h2, h3, h4, h5 {
   padding-top: 10rem !important;
 }
 
+@media (min-width: 992px) {
+  .pt-lg-6 {
+    padding-top: 6rem !important;
+  }
+
+  .pt-lg-7 {
+    padding-top: 7rem !important;
+  }
+
+  .pt-lg-8 {
+    padding-top: 8rem !important;
+  }
+
+  .pt-lg-9 {
+    padding-top: 9rem !important;
+  }
+
+  .pt-lg-10 {
+    padding-top: 10rem !important;
+  }
+}
 .icon {
   border-radius: 50%;
   background-color: #305f7f;
@@ -217,6 +238,11 @@ h1, h2, h3, h4, h5 {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.header .actionButton {
+  position: absolute;
+  top: 23vw;
+  right: 20px;
 }
 .header .actionButton.lightBrown {
   color: #fff;
@@ -422,14 +448,17 @@ a.actionButton:hover {
 }
 
 @media (min-width: 992px) {
+  .contentImageText {
+    padding: 0 5%;
+  }
   .contentImageText .textWrap {
-    margin-left: -190px;
+    margin-left: -17%;
   }
   .contentImageText.textLeft .textWrap {
     margin-left: 0;
   }
   .contentImageText.textLeft .imgWrap {
-    margin-left: -190px;
+    margin-left: -17%;
   }
 }
 .contentCTA {
@@ -504,7 +533,16 @@ a.actionButton:hover {
 .contentSwiper .text {
   color: #423f38;
 }
-.contentSwiper .text h3 {
+.contentSwiper .text h1, .contentSwiper .text h2, .contentSwiper .text h3, .contentSwiper .text h4, .contentSwiper .text h5 {
+  color: #305f7f;
+}
+.contentSwiper.bg-lightBrown {
+  background-color: #ede9e3;
+}
+.contentSwiper.bg-lightBrown .text {
+  color: #423f38;
+}
+.contentSwiper.bg-lightBrown .text h1, .contentSwiper.bg-lightBrown .text h2, .contentSwiper.bg-lightBrown .text h3, .contentSwiper.bg-lightBrown .text h4, .contentSwiper.bg-lightBrown .text h5 {
   color: #305f7f;
 }
 .contentSwiper .swiperHeadline {
@@ -550,6 +588,9 @@ a.actionButton:hover {
   opacity: 1;
 }
 .contentSwiper .swiper-slide {
+  opacity: 0;
+}
+.contentSwiper .swiper-slide.swiper-slide-prev, .contentSwiper .swiper-slide.swiper-slide-next {
   opacity: 0.5;
 }
 .contentSwiper .swiper-slide .swiperText, .contentSwiper .swiper-slide .swiperHeadline {
@@ -564,15 +605,6 @@ a.actionButton:hover {
 .contentSwiper .swiper-slide .bg-lightGrey {
   color: #423f38;
 }
-.contentSwiper.bg-lightBrown {
-  background-color: #ede9e3;
-}
-.contentSwiper.bg-lightBrown .text {
-  color: #423f38;
-}
-.contentSwiper.bg-lightBrown .text h3 {
-  color: #423f38;
-}
 
 .contentBoxen .boxItem {
   border: 1px solid #305f7f;
@@ -580,6 +612,7 @@ a.actionButton:hover {
 }
 .contentBoxen .icon {
   margin-top: -25px;
+  background-color: #8dacc6;
 }
 .contentBoxen .button {
   margin-bottom: -20px;

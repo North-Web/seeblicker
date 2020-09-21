@@ -24,6 +24,9 @@
   }
 
   .actionButton {
+    position: absolute;
+    top:23vw;
+    right: 20px;
     &.lightBrown {
       color: #fff;
     }

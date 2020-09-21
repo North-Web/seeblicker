@@ -11,7 +11,7 @@ prototype(NorthWeb.Site:Content.Swiper.Item) < prototype(Neos.Neos:ContentCompon
             condition = ${q(node).property('image') ? true : false}
             renderer = Sitegeist.Kaleidoscope:AssetImageSource {
                 asset = ${q(node).property('image')}
-                width = 600
+                #width = 800
             }
         }
         dummyImage {
@@ -37,6 +37,8 @@ prototype(NorthWeb.Site:Content.Swiper.Item) < prototype(Neos.Neos:ContentCompon
             <Sitegeist.Lazybones:Image
                     lazy={false}
                     imageSource={props.src}
+                    srcset="2000w,1500w, 1000w, 800w ,320w"
+                    sizes="(min-width: 2000px) 1200px,(min-width: 1500px) 1000px,(min-width: 1000px) 800px, (min-width: 320px) 800px"
                     alt={props.alternativeText}/>
             <div @if.hasHeadline={props.headlineShow} class="swiperHeadline align-self-center">{props.headline}</div>
             <div @if.hasText={props.textShow} class={props.styleClass}>{props.text}</div>
