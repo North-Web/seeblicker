@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .bg-lightBrown {
-  background-color: #ede9e3;
+  background-color: #e9f0f2;
 }
 
 .bg-lightBlue {
@@ -537,7 +537,7 @@ a.actionButton:hover {
   color: #305f7f;
 }
 .contentSwiper.bg-lightBrown {
-  background-color: #ede9e3;
+  background-color: #e9f0f2;
 }
 .contentSwiper.bg-lightBrown .text {
   color: #423f38;
