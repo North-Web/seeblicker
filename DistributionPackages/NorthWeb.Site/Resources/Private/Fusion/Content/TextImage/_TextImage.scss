@@ -1,36 +1,51 @@
 .contentImageText {
   .text {
     color: #fff;
+
+    a:not(.btn),a:hover:not(.btn) {
+      color: $base-color-light;
+      text-decoration: underline;
+    }
+
     &.blue {
       h2 {
         color: $base-color-light;
       }
+
       background-color: $base-color;
     }
+
     &.lightBlue {
       h2 {
         color: $base-color;
       }
+
       background-color: $base-color-light;
     }
+
     &.brown {
       h2 {
         color: $base-color-brown;
       }
+
       background-color: $base-color-darkBrown;
     }
+
     &.lightBrown {
       h2 {
         color: $base-color-darkBrown;
       }
+
       background-color: $base-color-brown;
     }
   }
+
   .actionButtonWrap {
     position: absolute;
     top: -80px;
     left: 100px;
   }
+
   &.textLeft {
     .actionButtonWrap {
       top: -80px;
@@ -38,26 +53,30 @@
       right: 100px;
     }
   }
+
   .textWrap {
     z-index: 10;
   }
+
   .imgWrap {
     z-index: 1;
   }
 }
 
 
-
 @media (min-width: 992px) {
   .contentImageText {
     padding: 0 5%;
+
     .textWrap {
       margin-left: -17%;
     }
+
     &.textLeft {
       .textWrap {
         margin-left: 0;
       }
+
       .imgWrap {
         margin-left: -17%;
       }
