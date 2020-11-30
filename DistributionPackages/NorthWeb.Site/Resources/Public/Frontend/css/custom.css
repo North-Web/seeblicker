@@ -6,6 +6,11 @@ h1, h2, h3, h4, h5 {
   font-family: script, sans-serif;
 }
 
+a, a:hover {
+  color: #8dacc6;
+  text-decoration: underline;
+}
+
 .btn {
   color: #fff;
   border-radius: 0;
