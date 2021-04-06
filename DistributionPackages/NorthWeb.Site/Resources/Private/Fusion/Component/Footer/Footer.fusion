@@ -45,7 +45,12 @@ prototype(NorthWeb.Site:Component.Footer) < prototype(Neos.Neos:ContentComponent
                             <a target="_blank" title="Instagram" href="https://www.instagram.com/seeblicker/?hl=de">
                                 <div class="icon instagram">
                                 </div>
-                            </a><br/>
+                            </a>
+                            <a target="_blank" title="YouTube" href="https://www.youtube.com/user/DasHotelSeeblick">
+                                <div class="icon youtube">
+                                </div>
+                            </a>
+                            <br/>
                             &copy; Copyright {props.year} Seeblick
                         </div>
                         <div class="col align-self-center text-center p-2 serviceNav">

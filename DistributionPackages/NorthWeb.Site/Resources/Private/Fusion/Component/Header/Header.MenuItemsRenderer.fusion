@@ -3,6 +3,8 @@ prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fus
     voucher = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:voucher')}
     booking = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:booking')}
     linkNode = ${q(site).find('#4a43e1f4-08a1-42a0-96da-49875355ecb1').get(0)}
+    reservation = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:reservation')}
+    linkNodeReservatiuon = ${q(site).find('#b9e22a71-e537-4e65-b99d-1e13d9f954ec').get(0)}
     @if.has = ${this.items}
     renderer = afx`
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -41,6 +43,11 @@ prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fus
                         node={props.linkNode}
                         additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
                     {props.booking}
+                </Carbon.Link:Link>
+                <Carbon.Link:Link
+                        node={props.linkNodeReservatiuon}
+                        additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
+                    {props.reservation}
                 </Carbon.Link:Link>
             </form>
             <form class="form-inline ml-auto">

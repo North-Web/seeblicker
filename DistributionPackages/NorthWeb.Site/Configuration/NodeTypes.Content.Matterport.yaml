@@ -1,0 +1,20 @@
+'NorthWeb.Site:Content.Matterport':
+  superTypes:
+    'Neos.Neos:Content': true
+    'NorthWeb.Site:Mixin.InspectorStyle': true
+    'NorthWeb.Site:Mixin.StyleBackground': true
+    'NorthWeb.Site:Mixin.StylePadding': true
+  ui:
+    label: Matterport Rundgang
+    icon: icon-image
+    position: 85
+  properties:
+    iframe:
+      type: string
+      ui:
+        label: 'Matterport Rundgang'
+        reloadIfChanged: true
+        inspector:
+          group: 'style'
+          editorOptions:
+            placeholder: 'iFrame link'

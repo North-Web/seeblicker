@@ -8,7 +8,11 @@
             </trans-unit>
             <trans-unit id="booking">
                 <source>booking</source>
-                <target xml:lang="de" state="translated">Jetzt buchen</target>
+                <target xml:lang="de" state="translated">Hotelreservierung</target>
+            </trans-unit>
+            <trans-unit id="reservation">
+                <source>booking</source>
+                <target xml:lang="de" state="translated">Tischreservierung</target>
             </trans-unit>
         </body>
     </file>

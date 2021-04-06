@@ -8,6 +8,9 @@
             <trans-unit id="booking">
                 <source>booking</source>
             </trans-unit>
+            <trans-unit id="reservation">
+                <soure>table reservation</soure>
+            </trans-unit>
         </body>
     </file>
 </xliff>

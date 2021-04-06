@@ -1,0 +1,22 @@
+prototype(NorthWeb.Site:Content.Matterport) < prototype(Neos.Neos:ContentComponent) {
+
+    styleClass = Neos.Fusion:Join {
+        1 = ${'contentText text-center'}
+        2 = ${q(node).property('paddingTop')}
+        3 = ${q(node).property('paddingBottom')}
+        4 = ${q(node).property('styleClass')}
+        @glue = ' '
+    }
+    iframe = ${q(node).property('iframe')}
+    isBE = ${!site.context.inBackend}
+
+    renderer = afx`
+        <div class={props.styleClass} >
+            <div class="container">
+                <div class="matterport_wrapper">
+                    <iframe width="100%" height="100%" src={props.iframe} frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
+                </div>
+            </div>
+        </div>
+    `
+}
