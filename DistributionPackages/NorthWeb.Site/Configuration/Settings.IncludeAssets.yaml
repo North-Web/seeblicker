@@ -21,6 +21,7 @@ Carbon:
             - bootstrap.bundle.min.js
         #    - swiper-bundle.min.js
             - jquery.matchHeight-min.js
+            - https://consent.cookiebot.com/uc.js[id="Cookiebot" data-cbid="55ddd4bc-5b42-47b2-a33e-2261a7f69510" data-blockingmode="auto"]
         Backend:
           Head:
             - BE.css

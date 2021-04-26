@@ -638,8 +638,7 @@ a.actionButton:hover {
   padding-bottom: 56.25%;
   /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
 }
-
-iframe {
+.matterport_wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
