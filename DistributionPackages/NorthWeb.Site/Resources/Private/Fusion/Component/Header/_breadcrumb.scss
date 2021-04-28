@@ -1,0 +1,13 @@
+.breadcrumb {
+  background-color: transparent;
+  padding: .75rem 0 0 0;
+  li {
+    padding-right: 0.2rem;
+    color: grey;
+    &:after { content: " /"; }
+    &:last-child:after { content: ""; }
+  }
+  a {
+    color: #555555;
+  }
+}

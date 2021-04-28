@@ -1,0 +1,7 @@
+'NorthWeb.Site:Content.Sitemap':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: Sitemap
+    icon: icon-list-ul
+    position: 999

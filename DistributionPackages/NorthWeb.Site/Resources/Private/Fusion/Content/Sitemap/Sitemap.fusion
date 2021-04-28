@@ -1,0 +1,58 @@
+prototype(NorthWeb.Site:Content.Sitemap) < prototype(Neos.Neos:ContentComponent) {
+
+    items = Neos.Neos:MenuItems {
+        startingPoint = ${site}
+        renderHiddenInIndex = ${true}
+    }
+
+    renderer = afx`
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <nav class="sitemap">
+                            <NorthWeb.Site:Content.SitemapItemRenderer
+                                    items={props.items} iterate={iterate.cycle}
+                            />
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+    `
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
+}
+
+prototype(NorthWeb.Site:Content.SitemapItemRenderer) < prototype(Neos.Neos:ContentComponent) {
+
+    items = false
+
+    renderer = afx`
+        <ul >
+            <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer" iterationName="iterate">
+                <li>
+                    <Carbon.Link:Link
+                            node={menuItem.node}
+                            backendLink={true}
+                            renderDefaultTagIfNoLink={true}>
+                    { menuItem.label }
+                    </Carbon.Link:Link>
+
+                    <NorthWeb.Site:Content.SitemapItemRenderer
+                            items={menuItem.subItems} iterate={iterate.cycle}
+                    />
+                </li>
+            </Neos.Fusion:Loop>
+        </ul>
+    `
+}
+

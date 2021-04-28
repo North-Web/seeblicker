@@ -84,6 +84,10 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
         @if.hasContent = ${q(node).property('actionButtonHeadline') || q(node).property('actionButtonText') ? true : false}
     }
 
+    breadcrumb = Neos.Neos:BreadcrumbMenu {
+        renderHiddenInIndex = ${true}
+    }
+
     renderer = afx`
         <header class="w-100">
             <div class="mainNav">
@@ -116,6 +120,13 @@ prototype(NorthWeb.Site:Component.Header) < prototype(Neos.Fusion:Component) {
             </div>
             {props.buttonMobile}
         </header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {props.breadcrumb}
+                </div>
+            </div>
+        </div>
     `
 
     @cache {
