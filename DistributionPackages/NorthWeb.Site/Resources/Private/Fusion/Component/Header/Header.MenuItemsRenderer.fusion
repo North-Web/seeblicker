@@ -36,7 +36,7 @@ prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fus
             </Neos.Fusion:Loop>
         </ul>
             <form class="form-inline">
-                <a class="btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0" href="https://www.ovoucher.de/seeblick/" target="_blank" role="button">{props.voucher}</a>
+                <a class="btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0" href="https://voucher-ibe.hotels-online-buchen.de/FE/Index?lang=de-DE&kid=seeblicknorddorf" target="_blank" role="button">{props.voucher}</a>
             </form>
             <form class="form-inline">
                 <Carbon.Link:Link
