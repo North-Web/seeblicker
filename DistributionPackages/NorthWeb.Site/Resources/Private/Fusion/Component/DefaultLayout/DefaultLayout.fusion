@@ -5,5 +5,6 @@ prototype(NorthWeb.Site:Component.DefaultLayout) < prototype(Neos.Fusion:Compone
         <NorthWeb.Site:Component.Header />
         {props.content}
         <NorthWeb.Site:Component.Footer />
+        <script src="//widget.customer-alliance.com/reviews/js/standard/4232f7c953946507.js" async></script>
     `
 }

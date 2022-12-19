@@ -6,10 +6,13 @@
                 <source>Voucher</source>
             </trans-unit>
             <trans-unit id="booking">
-                <source>booking</source>
+                <source>Booking</source>
             </trans-unit>
             <trans-unit id="reservation">
-                <soure>table reservation</soure>
+                <source>Reserv a table</source>
+            </trans-unit>
+            <trans-unit id="request">
+                <source>Booking request</source>
             </trans-unit>
         </body>
     </file>

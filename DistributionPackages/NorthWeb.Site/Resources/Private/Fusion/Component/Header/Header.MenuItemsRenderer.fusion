@@ -1,13 +1,23 @@
 prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fusion:Component) {
     items = false
-    voucher = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:voucher')}
-    booking = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:booking')}
-    linkNode = ${q(site).find('#4a43e1f4-08a1-42a0-96da-49875355ecb1').get(0)}
-    reservation = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:reservation')}
-    linkNodeReservatiuon = ${q(site).find('#b9e22a71-e537-4e65-b99d-1e13d9f954ec').get(0)}
-    @if.has = ${this.items}
+    showLanguage = true
+    booking = ${q(site).find('#022aad7d-79aa-4ad0-9c43-73233a5dda64').property('title')}
+    bookingLink = ${q(site).find('#022aad7d-79aa-4ad0-9c43-73233a5dda64').get(0)}
+    request = ${q(site).find('#26a889f7-3d31-4224-a256-97b001e7da83').property('title')}
+    requestLink = ${q(site).find('#26a889f7-3d31-4224-a256-97b001e7da83').get(0)}
+    voucher = ${q(site).find('#973890e5-d88f-48b9-88bb-73f13eaeb4ab').property('title')}
+    voucherLink = ${q(site).find('#973890e5-d88f-48b9-88bb-73f13eaeb4ab').get(0)}
+    reservation = ${q(site).find('#b9e22a71-e537-4e65-b99d-1e13d9f954ec').property('title')}
+    linkReservatiuon = ${q(site).find('#b9e22a71-e537-4e65-b99d-1e13d9f954ec').get(0)}
+    //booking = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:booking')}
+    //bookingLink = ${'https://ibev5.hotels-online-buchen.de/ibe/seeblicknorddorf'}
+    //request = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:request')}
+    //requestLink = ${'https://angebote.hotels-online-buchen.de/Index/seeblicknorddorf'}
+    //reservation = ${I18n.translate('NorthWeb.Site:NodeTypes.Component.Header:reservation')}
+    //linkReservatiuon = ${q(site).find('#b9e22a71-e537-4e65-b99d-1e13d9f954ec').get(0)}
+    //@if.has = ${this.items}
     renderer = afx`
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer" iterationName="iterate">
                 <li class={'nav-item ' + (menuItem.state ? menuItem.state : '') + (menuItem.subItems ? ' dropdown' : '') }>
@@ -36,21 +46,31 @@ prototype(NorthWeb.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.Fus
             </Neos.Fusion:Loop>
         </ul>
             <form class="form-inline">
-                <a class="btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0" href="https://voucher-ibe.hotels-online-buchen.de/FE/Index?lang=de-DE&kid=seeblicknorddorf" target="_blank" role="button">{props.voucher}</a>
-            </form>
-            <form class="form-inline">
                 <Carbon.Link:Link
-                        node={props.linkNode}
-                        additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
+                        node={props.bookingLink}
+                        additionalClass='btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0'>
                     {props.booking}
                 </Carbon.Link:Link>
                 <Carbon.Link:Link
-                        node={props.linkNodeReservatiuon}
+                        node={props.requestLink}
+                        additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
+                    {props.request}
+                </Carbon.Link:Link>
+                <Carbon.Link:Link
+                        node={props.voucherLink}
+                        additionalClass='btn btn-sm btn-outline-light ml-lg-2 mt-2 mt-lg-0'>
+                    {props.voucher}
+                </Carbon.Link:Link>
+                <Carbon.Link:Link
+                        node={props.linkReservatiuon}
                         additionalClass='btn btn-sm btn-outline-light btn-blue ml-lg-2 mt-2 mt-lg-0'>
                     {props.reservation}
                 </Carbon.Link:Link>
             </form>
-            <form class="form-inline ml-auto">
+            <form @if.showLanguage={props.showLanguage} class="form-inline d-none d-lg-block" style="position: fixed; right: 80px">
+                <NorthWeb.Site:Component.DimensionMenu/>
+            </form>
+            <form @if.showLanguage={props.showLanguage} class="form-inline d-lg-none">
                 <NorthWeb.Site:Component.DimensionMenu/>
             </form>
         </div>
